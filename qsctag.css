@@ -1,0 +1,19 @@
+#pre_tags li {
+    margin-top: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: dotted #CCCCCC 1px;
+    list-style: none;
+    float: left;
+    margin-right: 20px;
+}
+
+#pre_tags li:hover {
+    background: blue;
+}
+
+.tag_selected {
+    background: red;
+}

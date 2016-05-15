@@ -1,0 +1,57 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>qsc标签库测试</title>
+    <script type="text/javascript" src="./jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src='qsctag.js'></script>
+    <link rel="stylesheet" type="text/css" href="qsctag.css">
+</head>
+<body>
+    <div>
+        <ul id="pre_tags">
+            <li>亲子</li>
+            <li>蜜月</li>
+            <li>度假</li>
+            <li>休闲</li>
+        </ul>
+        <div style="clear:both"></div>
+    </div>
+
+    <div style="clear:both; font-size:20px;margin-left:36px; margin-top:20px">
+        <input type='button' value='add tag test' onclick='add_tag_test()'>
+        <input type='button' value='get tag test' onclick='get_tag_test()'>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+function add_tag_test() {
+    console.log('add_tag_test') ;
+    QSCtagBox.add_tag('123') ;
+}
+
+function get_tag_test() {
+    var added_tags = QSCtagBox.get_added_tags() ;
+    console.log(added_tags);
+}
+
+//--------------qsctag use start --------------
+var ary_added_tags = new Array() ;
+ary_added_tags.push('test') ;
+ary_added_tags.push('hello') ;
+var container = $("#pre_tags") ;
+var params = {
+    container:container,
+    ary_added_tags:ary_added_tags, 
+    onTagSelect:function(tag_name){
+        console.log("onTagSelect:" + tag_name) ;
+    },
+    onTagSelectCancel:function(tag_name) {
+        console.log("onTagSelectCancel:" + tag_name) ;
+    }
+} ; 
+QSCtagBox = $.extend(QSCtagBox, params) ;
+QSCtagBox.init() ;
+//--------------qsctag use start --------------
+
+</script>
